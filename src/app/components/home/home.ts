@@ -10,7 +10,7 @@ import { DxSchedulerModule } from 'devextreme-angular';
   standalone: true,
   imports: [FormsModule, CommonModule, DxSchedulerModule],
   templateUrl: './home.html',
-  styleUrl: './home.css',
+  styleUrls: ['./home.css'],
 })
 export class Home {
   departments = departments;
@@ -33,7 +33,7 @@ export class Home {
     {
       startDate: new Date('2024-04-11 11:30'),
       endDate: new Date('2024-04-11 12:00'),
-      title: 'Zeliha Vrsli',
+      title: 'Nuran Serbez',
     },
   ];
 }
