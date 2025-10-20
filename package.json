@@ -30,7 +30,7 @@
     "@angular/router": "^20.3.0",
     "@sweetalert2/ngx-sweetalert2": "^14.0.0",
     "devextreme": "^25.1.5",
-    "devextreme-angular": "25.1.5",
+    "devextreme-angular": "^25.1.5",
     "devextreme-schematics": "^1.11.2",
     "form-validate-angular": "^20.0.0",
     "jwt-decode": "^4.0.0",
