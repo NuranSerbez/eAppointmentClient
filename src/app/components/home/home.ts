@@ -64,6 +64,7 @@ export class Home {
 
     this.createModel.startDate = this.date.transform(e.appointmentData.startDate, "MM.dd.yyyy HH:mm") ?? "";
     this.createModel.endDate = this.date.transform(e.appointmentData.endDate, "MM.dd.yyyy HH:mm") ?? "";
+
     this.createModel.doctorId = this.selectedDoctorId;
 
     $("#addModal").modal("show");
@@ -99,5 +100,33 @@ export class Home {
         this.getAllAppointments();
       })
     }
+  }
+  onAppointmentDeleted(e:any){
+    e.cancel=true;
+  }
+  onAppointmentDeleting(e: any) {
+    e.cancel = true;
+
+    console.log(e);
+
+    this.swal.callSwal("Delete appointment?", `You want to delete ${e.appointmentData.patient.fullName} appointment?`, () => {
+      this.http.post<string>("Appointments/DeleteById", { id: e.appointmentData.id }, res => {
+        this.swal.callToast(res.data, "info");
+        this.getAllAppointments();
+      });
+    })
+  }
+  onAppointmentUpdating(e:any){
+    e.cancel = true;
+    
+    const data = {
+      id: e.oldData.id,
+      startDate: this.date.transform(e.newData.startDate, "MM.dd.yyyy HH:mm"),
+      endDate: this.date.transform(e.newData.endDate, "MM.dd.yyyy HH:mm"),
+    };
+    this.http.post<string>("Appointments/Update", data, res=>{
+      this.swal.callToast(res.data);
+      this.getAllAppointments();
+    });
   }
 }
