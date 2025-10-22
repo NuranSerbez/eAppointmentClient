@@ -7,6 +7,7 @@ import { Doctors } from './components/doctors/doctors';
 import { inject } from '@angular/core';
 import { Auth } from './services/auth';
 import { Patients } from './components/patients/patients';
+import { Users } from './components/users/users';
 
 export const routes: Routes = [
   {
@@ -30,10 +31,14 @@ export const routes: Routes = [
         path: 'patients',
         component: Patients,
       },
+      {
+        path: 'users',
+        component: Users,
+      },
     ],
   },
   {
-    path: '**', // NotFound için catch-all
+    path: '**',
     component: NotFound,
   },
 ];

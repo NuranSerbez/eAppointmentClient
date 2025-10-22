@@ -7,7 +7,7 @@ import { Error } from './error';
   providedIn: 'root',
 })
 export class Http {
-  token: string = '';
+  token: string = "";
 
   constructor(
     private http: HttpClient,
